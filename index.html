@@ -5,10 +5,97 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Library - ArcData</title>
 	<link href="https://fonts.cdnfonts.com/css/tenorite" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/fc5a762e4d.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script type="text/javascript" src = "script.js" defer></script>
 </head>
 <body>
+	<div class = "navigation">
+		<nav>
+			<div class="title">myLibrary</div>
+		</nav>
+	</div>
+	<div class="page-content">
+		<div class="output-section">
+			<div class="control-section">
+				<div class = 'collections'>
+					<i class="fa-solid fa-book"></i>
+					<p>My Collections</p>
+				</div>
+				
+			</div>
+			<div class="main-section">
+				<table class = "book-table">
+					<tr>
+						<th>Book Title</th>
+						<th>Author</th>
+						<th>Page Count</th>
+						<th>Reading Status</th>
+						<th></th>
+					</tr>
+					<tr>
+						<td>Chitose is in the Ramune Bottle</td>
+						<td>Hiromu / raemz</td>
+						<td>301</td>
+						<td>have read</td>
+						<td><button class = "button delete" type = 'submit'>Remove</button></td>
+					</tr>
+					<tr>
+						<td>Chitose is in the Ramune Bottle</td>
+						<td>Hiromu / raemz</td>
+						<td>301</td>
+						<td>have read</td>
+						<td><button class = "button delete" type = 'submit'>Remove</button></td>
+					</tr>
+					<tr>
+						<td>Chitose is in the Ramune Bottle</td>
+						<td>Hiromu / raemz</td>
+						<td>301</td>
+						<td>have read</td>
+						<td><button class = "button delete" type = 'submit'>Remove</button></td>
+					</tr>
+					<tr>
+						<td>Chitose is in the Ramune Bottle</td>
+						<td>Hiromu / raemz</td>
+						<td>301</td>
+						<td>have read</td>
+						<td><button class = "button delete" type = 'submit'>Remove</button></td>
+					</tr>
+					<tr>
+						<td>Chitose is in the Ramune Bottle</td>
+						<td>Hiromu / raemz</td>
+						<td>301</td>
+						<td>have read</td>
+						<td><button class = "button delete" type = 'submit'>Remove</button></td>
+					</tr>
+					
+				</table>
+			</div>
+		</div>
+		<div class="stats-section">
+			<form method = "POST" action = " ">
+			<div class="form-header">Enter Book Information</div>
+			<div class="form-content">
+				<div class = "form-row">
+					<label for = 'book-title'>Book Title</label>
+					<input type="text" name="book-title" id = 'book-title'>
+				</div>
+				<div class = 'form-row'>
+					<label for = 'author'>Author</label>
+					<input type="text" name="author" id = 'author'>
+				</div>
+				<div class = "form-row">
+					<label for = 'page-count'>Page Count</label>
+					<input type="text" name="page-count" id = 'page-count'>
+				</div>
+			</div>
+			<div class="form-footer">
+				<button type = 'submit' class = "button" id = "submitBook">Add Book</button>
+			</div>
+		</form>
+		</div>
+	</div>
+	<button id = 'add-book'></button>
 
 </body>
 </html>
