@@ -73,29 +73,41 @@
 			</div>
 		</div>
 		<div class="stats-section">
-			<form method = "POST" action = " ">
-			<div class="form-header">Enter Book Information</div>
+			<button class = "button add-btn">&plus; Add Book Record</div>
+				
+		</div>
+	</div>
+	<div class="modal-form">
+		<div class = "modal-control">
+		<button class = "close-btn">&times</button>
+		</div>
+		<form method = "POST" action = "">
+			<div class="form-header">
+				Add Book Information
+			</div>
 			<div class="form-content">
-				<div class = "form-row">
-					<label for = 'book-title'>Book Title</label>
-					<input type="text" name="book-title" id = 'book-title'>
+				<div class="form-row">
+					<label for = 'title'>Book Title</label>
+					<input type= "text" name="title" id = "title" placeholder = "Enter book title...">
 				</div>
-				<div class = 'form-row'>
-					<label for = 'author'>Author</label>
-					<input type="text" name="author" id = 'author'>
+				<div class="form-row">
+					<label for = 'title'>Book Author</label>
+					<input type= "text" name="title" id = "title" placeholder = "Enter author's full name...">
 				</div>
-				<div class = "form-row">
-					<label for = 'page-count'>Page Count</label>
-					<input type="text" name="page-count" id = 'page-count'>
+				<div class="form-row">
+					<label for = 'read-status'>Reading Status</label>
+					<select id = 'read-status'>
+						<option value = 'planning'>Planning</option>
+						
+						<option value = 'finished'>Finished</option>
+					</select>
 				</div>
 			</div>
 			<div class="form-footer">
-				<button type = 'submit' class = "button" id = "submitBook">Add Book</button>
+				<button type = 'submit' class = 'button submit-book'>Submit</button>
 			</div>
 		</form>
-		</div>
 	</div>
-	<button id = 'add-book'></button>
-
+	<div id="overlay" class = 'active'></div>
 </body>
 </html>
