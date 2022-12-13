@@ -237,7 +237,7 @@ tbody tr:hover {
 	transform: translate(-50%, -50%) scale(1);
 }
 
-.submit-book {
+.submit-btn {
 	width:100%;
 	color:white;
 	background:#1088eb;
