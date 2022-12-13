@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Source+Code+Pro:wght@500&display=swap');
 :root {
 	font-family: 12px;
 }
@@ -10,7 +11,7 @@
 
 body {
 	background: #effbff;
-	font-family: 'Tenorite', sans-serif;
+	font-family: 'Inter', sans-serif;
 	color:black;
 }
 
@@ -22,7 +23,6 @@ body {
 	left:0;
 	width:100%;
 	border-block-end: 1px solid #00bbf0;
-/*	filter: drop-shadow(0px 0px 1px black);*/
 }
 
 nav {
@@ -151,31 +151,47 @@ select {
 table {
 	margin-top:20px;
 	width:100%;
-	font-size:1.4rem;
 	text-align:left;
+	border-collapse:collapse;
 }
 
-
-
-tr {
-}
-
-tr:hover {
-	cursor:pointer;
-	background: #ccc;
-}
 
 table tr td{
-	border-top:1px solid #ccc;
-	padding:10px 0;
+	border-top:1px solid #e0e0e0;
 }
 
-th {
-	font-weight:300;
+thead tr th {
+	font-weight: 500;
+	text-transform: uppercase;
 }
 
-td {
+tbody tr td:last-child {
+	text-align: center;
 }
+
+tbody tr td:nth-child(3) {
+	font-family: 'Source Code Pro', monospace;
+	font-weight:400;
+	text-align:right;
+}
+
+thead tr th,
+tbody tr td {
+	padding:8px 16px;
+	font-size:1.2rem;
+}
+
+tbody tr:hover {
+	background:#eee;
+	transition: 200ms ease-in-out;
+}
+
+
+.page-count {
+	font-family: 'Source Code Pro', monospace;
+	text-align: right;
+}
+
 
 
 .add-btn {
