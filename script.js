@@ -48,11 +48,15 @@ function addBookToLibrary(book) {
 }
 
 function changeStatus(event) {
-	console.log(event.currentTarget.id)
+	let statusNode = event.target
+	let idx = event.target.parentNode.dataset.index
+
+	myLibrary[idx].readStatus = myLibrary[idx].readStatus === 'planning' ? "finished" : "planning";
+	statusNode.textContent = myLibrary[idx].readStatus;
 }
 
 function removeFromList(event) {
-	console.log(event.currentTarget.id)
+
 }
 
 function renderList(book) {
@@ -63,24 +67,17 @@ function renderList(book) {
 		const removeButton = document.createElement('button');
 		const changeStatusButton = document.createElement('button');
 		let td;
-		
-		tr.dataset.index = idx;
-
-		removeButton.classList.add('button');
-		removeButton.classList.add('delete');
-		removeButton.textContent = 'Delete';
-		removeButton.addEventListener('click', removeFromList);
-
-		changeStatusButton.classList.add('button');
-		changeStatusButton.classList.add('delete');
-		changeStatusButton.addEventListener('click', changeStatusButton);
-
 
 		for(prop in book) {
 			td = document.createElement('td');
 			
 			if(prop === 'readStatus') {
+				changeStatusButton.classList.add('button');
+				changeStatusButton.classList.add('delete');
+				changeStatusButton.addEventListener('click', changeStatus);
+
 				changeStatusButton.textContent = book[prop];
+				td.dataset.index = idx;
 				td.appendChild(changeStatusButton);
 				tr.appendChild(td);
 				continue;
@@ -92,6 +89,12 @@ function renderList(book) {
 
 
 		td = document.createElement('td');
+		td.dataset.index = idx;
+		removeButton.classList.add('button');
+		removeButton.classList.add('delete');
+		removeButton.textContent = 'Delete';
+		removeButton.addEventListener('click', removeFromList);
+
 		td.appendChild(removeButton);
 		tr.appendChild(td);
 		tBody.appendChild(tr);
