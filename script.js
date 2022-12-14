@@ -53,6 +53,12 @@ function changeStatus(event) {
 
 	myLibrary[idx].readStatus = myLibrary[idx].readStatus === 'planning' ? "finished" : "planning";
 	statusNode.textContent = myLibrary[idx].readStatus;
+
+	if(statusNode.textContent === 'finished') {
+		statusNode.classList.add('finished');
+	} else {
+		statusNode.classList.remove('finished');
+	}
 }
 
 function removeFromList(event) {
@@ -76,7 +82,11 @@ function renderList(book) {
 			
 			if(prop === 'readStatus') {
 				changeStatusButton.classList.add('button');
-				changeStatusButton.classList.add('delete');
+				
+				if(book[prop] === 'finished') {
+					changeStatusButton.classList.add('finished');
+				}
+
 				changeStatusButton.addEventListener('click', changeStatus);
 
 				changeStatusButton.textContent = book[prop];

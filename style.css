@@ -165,14 +165,16 @@ thead tr th {
 	text-transform: uppercase;
 }
 
-tbody tr td:last-child {
-	text-align: center;
+
+tbody tr td:nth-child(3),
+thead tr th:nth-child(3) {
+	text-align:right;
 }
+
 
 tbody tr td:nth-child(3) {
 	font-family: 'Source Code Pro', monospace;
 	font-weight:400;
-	text-align:right;
 }
 
 thead tr th,
@@ -214,6 +216,11 @@ tbody tr:hover {
 	right:0;
 	bottom:0;
 	pointer-events: none;
+}
+
+.finished {
+	background:#1088eb;
+	color:white;
 }
 
 #overlay.active {
@@ -263,7 +270,3 @@ tbody tr:hover {
 	text-align:right;
 }
 
-
-/*
-font-family: 'Tenorite', sans-serif;
-*/
