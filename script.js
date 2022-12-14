@@ -59,19 +59,13 @@ function renderList(book) {
 	tbody.innerHTML = "";
 
 	myLibrary.forEach((book, idx) => {
-		let td;
+		let tr = document.createElement('tr');
 		const removeButton = document.createElement('button');
 		const changeStatusButton = document.createElement('button');
-		let tr = document.createElement('tr');
+		let td;
 		
-		for(prop in book) {
-			td = document.createElement('td');
-			td.textContent = book[prop];
-			tr.appendChild(td);
-		}
-
 		tr.dataset.index = idx;
-		
+
 		removeButton.classList.add('button');
 		removeButton.classList.add('delete');
 		removeButton.textContent = 'Delete';
@@ -79,17 +73,27 @@ function renderList(book) {
 
 		changeStatusButton.classList.add('button');
 		changeStatusButton.classList.add('delete');
-		changeStatusButton.textContent = 'Change Status';
 		changeStatusButton.addEventListener('click', changeStatusButton);
 
-		td = document.createElement('td');
-		td.appendChild(changeStatusButton);
-		tr.appendChild(td);
+
+		for(prop in book) {
+			td = document.createElement('td');
+			
+			if(prop === 'readStatus') {
+				changeStatusButton.textContent = book[prop];
+				td.appendChild(changeStatusButton);
+				tr.appendChild(td);
+				continue;
+			}
+
+			td.textContent = book[prop];
+			tr.appendChild(td);
+		}
+
 
 		td = document.createElement('td');
 		td.appendChild(removeButton);
 		tr.appendChild(td);
-		
 		tBody.appendChild(tr);
 	})	
 
