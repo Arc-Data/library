@@ -56,7 +56,10 @@ function changeStatus(event) {
 }
 
 function removeFromList(event) {
+	let idx = event.target.parentNode.dataset.index
 
+	myLibrary.splice(idx, 1);
+	renderList();
 }
 
 function renderList(book) {
