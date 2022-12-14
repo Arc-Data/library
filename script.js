@@ -33,10 +33,7 @@ function validateData(event) {
 		return;
 	}
 
-	const obj = new Book(title, author, pageCount, status);
-	myLibrary.push(obj);
-
-	addBookToLibrary(obj);
+	addBookToLibrary(new Book(title, author, pageCount, status));
 
 	bookTitle.value = '';
 	bookAuthor.value = '';
@@ -46,30 +43,57 @@ function validateData(event) {
 }
 
 function addBookToLibrary(book) {
-	console.log(book)
-	const removeButton = document.createElement('button')
-	const tr = document.createElement('tr');
-	
-	tr.data = "hello";
-	for(prop in book) {
-		let td = document.createElement('td');
-		td.textContent = book[prop];
-
-		tr.appendChild(td);
-	}
-
-	let td = document.createElement('td');
-	
-	removeButton.classList.add('button');
-	removeButton.classList.add('delete');
-	removeButton.textContent = 'Delete';
-
-	td.appendChild(removeButton);
-	tr.appendChild(td);
-
-	tBody.appendChild(tr);
+	myLibrary.push(book);
+	renderList(book)
 }
 
+function changeStatus(event) {
+	console.log(event.currentTarget.id)
+}
+
+function removeFromList(event) {
+	console.log(event.currentTarget.id)
+}
+
+function renderList(book) {
+	tbody.innerHTML = "";
+
+	myLibrary.forEach((book, idx) => {
+		let td;
+		const removeButton = document.createElement('button');
+		const changeStatusButton = document.createElement('button');
+		let tr = document.createElement('tr');
+		
+		for(prop in book) {
+			td = document.createElement('td');
+			td.textContent = book[prop];
+			tr.appendChild(td);
+		}
+
+		tr.dataset.index = idx;
+		
+		removeButton.classList.add('button');
+		removeButton.classList.add('delete');
+		removeButton.textContent = 'Delete';
+		removeButton.addEventListener('click', removeFromList);
+
+		changeStatusButton.classList.add('button');
+		changeStatusButton.classList.add('delete');
+		changeStatusButton.textContent = 'Change Status';
+		changeStatusButton.addEventListener('click', changeStatusButton);
+
+		td = document.createElement('td');
+		td.appendChild(changeStatusButton);
+		tr.appendChild(td);
+
+		td = document.createElement('td');
+		td.appendChild(removeButton);
+		tr.appendChild(td);
+		
+		tBody.appendChild(tr);
+	})	
+
+}
 
 function openForm() {
 	modalForm.classList.add('active');
@@ -79,11 +103,6 @@ function openForm() {
 function closeForm(e) {
 	modalForm.classList.remove('active');
 	overlay.classList.remove('active');
-}
-
-
-function initializeTableContents() {
-
 }
 
 
